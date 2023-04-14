@@ -1,6 +1,8 @@
 import time
 import requests
 
+from bs4 import BeautifulSoup
+
 
 # Requisito 1
 def fetch(url):
@@ -20,7 +22,16 @@ def fetch(url):
 
 # Requisito 2
 def scrape_updates(html_content):
-    """Seu código deve vir aqui"""
+    url_news = []
+
+    soup = BeautifulSoup(html_content, "html.parser")
+
+    news = soup.find_all("h2", {"class": "entry-title"})
+    for new in news:
+        a = new.find('a')
+        url = a.get('href')
+        url_news.append(url)
+    return url_news
 
 
 # Requisito 3
