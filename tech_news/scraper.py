@@ -1,4 +1,3 @@
-from html.parser import HTMLParser
 import time
 import requests
 
@@ -48,7 +47,19 @@ def scrape_next_page_link(html_content):
 
 # Requisito 4
 def scrape_news(html_content):
-    # print(html_content)
+    # soup = BeautifulSoup(html_content, "html.parser")
+    # news = soup.find_all("div", {"class": "post-outer"})
+
+    # for new in news:
+    #     title_new = new.find("h2", {"class": "entry-title"})
+    #     infos_new = new.find("ul", {"class": "post-meta"})
+    #     writer_new = infos_new.find("span", {"class": "author"})
+
+    #     url = title_new.find("a").get('href')
+    #     title = title_new.get_text()
+    #     timestamp = infos_new.find("li", {"class": "meta-date"}).get_text()
+    #     writer = writer_new.find("a").get_text()
+    #     reading_time = new.find("li", {"class": "meta-reading-time"})
     ...
 
 
