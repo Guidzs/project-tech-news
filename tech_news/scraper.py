@@ -1,5 +1,6 @@
 import time
 import requests
+import re
 
 from bs4 import BeautifulSoup
 
@@ -47,20 +48,24 @@ def scrape_next_page_link(html_content):
 
 # Requisito 4
 def scrape_news(html_content):
-    # soup = BeautifulSoup(html_content, "html.parser")
-    # news = soup.find_all("div", {"class": "post-outer"})
+    soup = BeautifulSoup(html_content, "html.parser")
 
-    # for new in news:
-    #     title_new = new.find("h2", {"class": "entry-title"})
-    #     infos_new = new.find("ul", {"class": "post-meta"})
-    #     writer_new = infos_new.find("span", {"class": "author"})
+    new_infos = soup.find("div", {"class": "entry-header-inner"})
+    new_content = soup.find("div", {"class": "entry-content"})
 
-    #     url = title_new.find("a").get('href')
-    #     title = title_new.get_text()
-    #     timestamp = infos_new.find("li", {"class": "meta-date"}).get_text()
-    #     writer = writer_new.find("a").get_text()
-    #     reading_time = new.find("li", {"class": "meta-reading-time"})
-    ...
+    category_span = new_infos.find("div", {"class": "meta-category"})
+    writer_new = new_infos.find("span", {"class": "author"})
+
+    return {
+        "url": soup.find('link', {"rel": 'canonical'}).get('href'),
+        "title": new_infos.find("h1", {"class": "entry-title"}).string.strip(),
+        "timestamp": new_infos.find("li", {"class": "meta-date"}).string,
+        "writer": writer_new.find("a").string,
+        "reading_time": int(
+            new_infos.find("li", {"class": "meta-reading-time"}).text[0:2]),
+        "summary": "".join(new_content.p.text).strip(),
+        "category": category_span.find("span", {"class": "label"}).string,
+    }
 
 
 # Requisito 5
