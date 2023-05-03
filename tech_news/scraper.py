@@ -3,6 +3,8 @@ import requests
 
 from bs4 import BeautifulSoup
 
+from .database import create_news
+
 
 # Requisito 1
 def fetch(url):
@@ -69,4 +71,21 @@ def scrape_news(html_content):
 
 # Requisito 5
 def get_tech_news(amount):
-    """Seu código deve vir aqui"""
+    news_url = []
+    news = []
+    BASE_URL = "https://blog.betrybe.com"
+
+    while len(news_url) < amount:
+        fetch_news = fetch(BASE_URL)
+        more_news = scrape_updates(fetch_news)
+        news_url.extend(more_news)
+        BASE_URL = scrape_next_page_link(fetch_news)
+
+    for i in range(amount):
+        new_html_content = fetch(news_url[i])
+        new = scrape_news(new_html_content)
+        news.append(new)
+
+    create_news(news)
+    return news
+    ...
