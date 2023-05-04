@@ -5,6 +5,35 @@ from tech_news.analyzer.search_engine import (
     search_by_title, search_by_date, search_by_category)
 
 
+def exit():
+    return ("Encerrando script")
+
+
+def execute_action(num: str):
+    actions = {
+        '0': get_tech_news,
+        '1': search_by_title,
+        '2': search_by_date,
+        '3': search_by_category,
+        '4': top_5_categories,
+        '5': exit
+    }
+    questions = {
+        '1': "Digite o título:",
+        '2': "Digite a data no formato aaaa-mm-dd:",
+        '3': "Digite a categoria:",
+    }
+
+    if num in questions:
+        param = input(questions[num])
+        print(actions[num](param))
+    elif num == '0':
+        param = int(input("Digite quantas notícias serão buscadas:"))
+        print(actions[num](param))
+    else:
+        print(actions[num]())
+
+
 # Requisitos 11 e 12
 def analyzer_menu():
     num = input(
@@ -14,25 +43,12 @@ def analyzer_menu():
         2 - Buscar notícias por data;
         3 - Buscar notícias por categoria;
         4 - Listar top 5 categorias;
-        5 - Sair."""
+        5 - Sair.
+        """
     )
+    options = ['0', '1', '2', '3', '4', '5']
 
-    if num == '0':
-        get_tech_news(int(input("Digite quantas notícias serão buscadas:")))
-    elif num == '1':
-        r = search_by_title(input("Digite o título:"))
-        print(r)
-    elif num == '2':
-        r = search_by_date(input("Digite a data no formato aaaa-mm-dd:"))
-        print(r)
-    elif num == '3':
-        r = search_by_category(input("Digite a categoria:"))
-        print(r)
-    elif num == '4':
-        r = top_5_categories()
-        print(r)
-    elif num == '5':
-        r = "Encerrando script"
-        return print(r)
+    if num in options:
+        execute_action(num)
     else:
         return print("Opção inválida", file=sys.stderr)
