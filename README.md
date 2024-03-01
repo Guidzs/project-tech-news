@@ -21,6 +21,12 @@ and working with scraping data on the web and populating it in a NoSQL database 
 
 *run the aplication with `python3 -i tech_news/menu.py` and `analyzer_menu()`
 
+## Running with Docker-Compose
+
+-`docker-compose up -d --build`
+
+-`ensure that there are no open containers that could conflict with the application`
+
 ## Test
 
 *run `python3 -m pytest`
