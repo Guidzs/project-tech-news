@@ -1,11 +1,11 @@
 # Tech News
 
-Este projeto é uma raspagem de dados no site <a href="https://blog.betrybe.com">betrybe</a>
+Este projeto é uma raspagem de dados no site [betrybe](#https://blog.betrybe.com)
 
-Este projeto foi idealizado pela <a href="https://www.betrybe.com">Trybe</a> com o objetivo de trabalhar e exercitar tecnologias como `MongoDB` e `BeautifulSoup`
+Este projeto foi idealizado pela [Trybe](#https://www.betrybe.com) com o objetivo de trabalhar e exercitar tecnologias como `MongoDB` e `BeautifulSoup`
 e trabalhando com coleta de dados na web e preenchimento em um banco de dados `NoSQL` chamado `tech_news`
 
-this project was conceived by  with the objective of working and exercising technologies such as `MongoDB` and `BeautifulSoup`
+this project was conceived by [Trybe](#https://www.betrybe.com) with the objective of working and exercising technologies such as `MongoDB` and `BeautifulSoup`
 and working with scraping data on the web and populating it in a `NoSQL` database called `tech_news`
 
 
