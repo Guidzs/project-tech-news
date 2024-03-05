@@ -1,62 +1,96 @@
 # Tech News
 
-> this project is a data scraping on the website [betrybe](https://blog.betrybe.com)
+Este projeto é uma raspagem de dados no site [betrybe](#https://blog.betrybe.com)
 
-this project was conceived by [Trybe](https://www.betrybe.com) with the objective of working and exercising technologies such as MongoDB and BeautifulSoup
-and working with scraping data on the web and populating it in a NoSQL database called tech_news
+Este projeto foi idealizado pela [Trybe](#https://www.betrybe.com) com o objetivo de trabalhar e exercitar tecnologias como `MongoDB` e `BeautifulSoup`
+e trabalhando com coleta de dados na web e preenchimento em um banco de dados `NoSQL` chamado `tech_news`
 
-## Prerequisites
+this project was conceived by [Trybe](#https://www.betrybe.com) with the objective of working and exercising technologies such as `MongoDB` and `BeautifulSoup`
+and working with scraping data on the web and populating it in a `NoSQL` database called `tech_news`
 
-- `git commands`
-- `python`
 
-## Install
+### Pré-Requisitos
+    
+  `Git Commands`
+  `Python`
 
-- `git clone git@github.com:Guidzs/project-tech-news.git`
-- `cd project-tech-news`
-- `python3 -m venv .venv && source .venv/bin/activate`
-- `python3 -m pip install -r dev-requirements.txt`
 
-## Use
+### Instalando a Aplicação
 
-*run the aplication with `python3 -i tech_news/menu.py` and `analyzer_menu()`
+* Clone este repositório
+```bash
+$ git clone git@github.com:Guidzs/project-tech-news.git
+```
+* Acesse a pasta do projeto no terminal/cmd
+```bash
+$ cd project-tech-news
+```
+* Rode esses comandos para entrar em abientre virtual e baixar as dependecias
+```bash
+$ python3 -m venv .venv && source .venv/bin/activate
 
-## Running with Docker-Compose
+$ python3 -m pip install -r dev-requirements.txt
+``````
 
--`docker-compose up -d --build`
+### Subindo o banco de dados com Docker-Compose `OPCIONAL`
+É importante garantir que não haja conteineres abertos que possam entrar em conflito com a aplicação
 
--`ensure that there are no open containers that could conflict with the application`
+
+* Instale o ambiente para a aplicação
+```bash
+$ docker-compoSse up -d --build
+```
+
+* Chame a função para popular o banco
+```bash
+$ tech-news-analyzer
+$ digite a opção -0
+$ siga os prompts para adicionar as notícias
+```
+
+## Como Usar
+
+* Para entrar na interface da aplicação rode os comandos `python3 -i tech_news/menu.py` and `analyzer_menu()`
+
+* Ou rode diretamente um dos scripts disponiveis `tech-news-analyzer`
 
 ## Test
 
-*run `python3 -m pytest`
+### Dentro do ambientre python execute o comando:
+* `python3 -m pytest`
 
-## Resources
+### funcionalidades
+<!--ts-->
+    0 - Popular o banco com notícias
+        Digite quantas notícias serão buscadas
 
-- type 0 to populate the database
-   \ inform the amount of news that will be searched
-- type 1 to search news by title
-- type 2 to search for news by date
-- type 3 to search for news by category
-- type 4 to search the top 5 categories
-- type 5 to exit
+    1 - Buscar notícias por título
+    2 - Buscar notícias por data
+    3 - Buscar notícias por categoria
+    4 - Listar top 5 categorias
+
+    5 - Selecione para sair da interface
+<!--te-->
 
 ## Contribution
 
-some files were made by Trybe like:
-    tech_news/analyzer/reading_plan.py
-    tech_news/database.py
-    .editorconfig
-    .gitignore
-    dev-requirements.txt
-    docker-compose.yml
-    Dockerfile
-    pyproject.toml
-    requirements.txt
-    setup.cfg
-    setup.py
+Alguns arquivos foram feitos pelo Trybe como base do projeto:
+<!--ts-->
+    * tech_news/analyzer/reading_plan.py
+    * tech_news/database.py
+    * .editorconfig
+    * .gitignore
+    * dev-requirements.txt
+    * docker-compose.yml
+    * Dockerfile
+    * pyproject.toml
+    * requirements.txt
+    * setup.cfg
+    * setup.py
+<!--te-->
 
 ## Contact
 
-- author's name: [Guilherme Borges](https://www.linkedin.com/in/guidzsBorges/)
+- [Guilherme Borges](https://www.linkedin.com/in/guidzsBorges/)
 - E-mail: guidz.2004@gmail.com
+</body>
